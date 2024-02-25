@@ -1,0 +1,161 @@
+
+<!-- HTML -->
+<body class="background">
+  <div class="container signup-container">
+    <div class="row">
+      <div class="col-md-8 col-lg-6 mx-auto">
+        <div class="containter text-container">
+          <h2>SIGNUP</h2>
+          <p>Please fill in this form to create an account.</p>
+          </div>
+        <form class="signup-form" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+         
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" formControlName="name" >
+            <div *ngIf="signupForm.get('name')?.invalid && (signupForm.get('name')?.dirty || signupForm.get('name')?.touched)">
+                </div> 
+                  </div>                                   
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" formControlName="email">
+            <div *ngIf="signupForm.get('email')?.invalid && (signupForm.get('email')?.dirty || signupForm.get('email')?.touched)">
+             
+        </div></div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <div class="input-group">
+              <input type="password" class="form-control" formControlName="password" >
+              <div *ngIf="signupForm.get('password')?.invalid && (signupForm.get('password')?.dirty || signupForm.get('password')?.touched)">  
+          </div>        
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password:</label>
+            <div class="input-group">
+              <input type="password" class="form-control" formControlName="confirmPassword" >
+              <div *ngIf="signupForm.get('confirmPassword')?.invalid && (signupForm.get('confirmPassword')?.dirty || signupForm.get('confirmPassword')?.touched)">
+             
+          <div class="text-danger"
+          *ngIf="signupFormControl['confirmPassword'].touched && signupFormControl['confirmPassword'].errors?.['passwordMismatch']">
+              Passwords doesnot match
+            </div>
+            </div>
+              </div>
+            </div>
+          
+          <div class="form-group">
+            <label for="phoneNo">Phone No:</label>
+            <input type="tel" class="form-control" formControlName="phoneNo">
+            <div *ngIf="signupForm.get('phoneNo')?.invalid && (signupForm.get('phoneNo')?.dirty || signupForm.get('phoneNo')?.touched)">
+          </div>
+          </div>
+          <div class="form-group">
+            <label for="city">City:</label>
+            <input type="text" class="form-control" formControlName="city">
+            <div *ngIf="signupForm.get('city')?.invalid && (signupForm.get('city')?.dirty || signupForm.get('city')?.touched)">
+          </div>
+          </div>
+          <div class="form-group">
+            <label for="district">District:</label>
+            <input type="text" class="form-control" formControlName="district" >
+            <div *ngIf="signupForm.get('district')?.invalid && (signupForm.get('district')?.dirty || signupForm.get('district')?.touched)">
+          </div>
+          </div>
+          
+          <button type="submit" class="btn btn-primary btn-block" >Signup</button>
+        </form>
+          <div class="login-in">Already have an account? <a routerLink="/login">Login here</a></div>
+     
+      </div>
+    </div>
+  </div>
+  
+</body>
+<!-- Styles for the body element -->
+<style>
+  .text-container{
+        text-align: center;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        color:#128aec;
+        font-size: 23px;
+  }
+  .background {
+    background-color: whitesmoke;
+    opacity: 1;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+  }
+  .signup-container label{
+    padding: 10px;
+    margin-left:14%;
+    font-size: 18px;
+    text-decoration: solid;
+    font-weight: bolder;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  .signup-container {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    height:900px;
+    width: 550px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+  }
+  .signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+  }
+  .signup-form input {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    width:350px;
+    height: 40px;
+    margin-left:15%;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  }
+  .signup-form button {
+    padding: 10px;
+    background-color: #2196f3;
+    color: #fff;
+    border: none;
+    margin-top: 10px;
+    margin-left: 200px;
+    width: 100px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  .login-in{
+    text-align: center;
+  }
+  .login-in a{
+    color: rgb(83, 143, 212);
+    text-decoration:underline;
+    font-weight: bold;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

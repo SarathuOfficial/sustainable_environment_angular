@@ -1,0 +1,84 @@
+<body class="background">
+  <div class="container complaint-container">
+    <div class="row">
+      <div class="col-md-8 col-lg-6 mx-auto">
+        <div class="containter text-container">
+          <h2>COMPLAINT FORM</h2>
+          </div>
+      <form [formGroup]="complaintForm" class="complaint-form">
+        <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" formControlName="name">
+      <div *ngIf="complaintForm.get('name')?.invalid && (complaintForm.get('name')?.dirty || complaintForm.get('name')?.touched)">      
+    </div>
+  </div>
+    <div class="form-group" >
+      <label for="email">Email:</label>
+      <input type="email" id="email" formControlName="email">
+      <div *ngIf="complaintForm.get('email')?.invalid && (complaintForm.get('email')?.dirty || complaintForm.get('email')?.touched)">
+    </div>
+    </div>
+    <div class="form-group" >
+      <label for="mobile">Mobile Number:</label>
+      <input type="tel" id="mobile" formControlName="mobile">
+      <div *ngIf="complaintForm.get('mobile')?.invalid && (complaintForm.get('mobile')?.dirty || complaintForm.get('mobile')?.touched)">
+    </div>
+    </div>
+    <div class="form-group" >
+      <label for="gender">Gender:</label>
+      <select id="gender" formControlName="gender">
+        <option value="" disabled selected>Select gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Prefer not say</option>
+      </select>
+      <div *ngIf="complaintForm.get('gender')?.invalid && (complaintForm.get('gender')?.dirty || complaintForm.get('gender')?.touched)">
+    </div>
+        </div>
+        <div class="form-group" >
+            <label for="city">City::</label>
+            <input type="text" id="city" formControlName="city">
+            <div *ngIf="complaintForm.get('city')?.invalid && (complaintForm.get('city')?.dirty || complaintForm.get('city')?.touched)">
+          </div>
+          </div>
+          <div class="form-group" >
+            <label for="district">District:</label>
+            <input type="text" id="district" formControlName="district">
+            <div *ngIf="complaintForm.get('district')?.invalid && (complaintForm.get('district')?.dirty || complaintForm.get('district')?.touched)">
+          </div>
+          </div>
+        <div class="form-group" >
+          <label for="systems">System to Reported:</label>
+          <div>         
+             <input type="checkbox" id="water" name="water" [(ngModel)]="water">Water Management System</div>
+          <div>   
+            <input type="checkbox" id="garbage" name="garbage" [(ngModel)]="garbage">Garbage Management System</div>
+            <div>   
+                <input type="checkbox" id="drainage" name="drainage" [(ngModel)]="drainage">Drainage Management System</div>
+                <div>  
+                    <input type="checkbox" id="sanitation" name="sanitation" [(ngModel)]="sanitation">Sanitation Management System</div>
+                    <div *ngIf="complaintForm.get('systems')?.invalid && (complaintForm.get('systems')?.dirty || complaintForm.get('systems')?.touched)">
+                  </div>
+            </div>
+            <div class="form-group" >
+                <label for="photo">Photo/Video Proof:</label>
+                <input type="file" (change)="onFileSelected ($event)" formControlName="photo">Any format
+                <div *ngIf="complaintForm.get('photo')?.invalid && (complaintForm.get('photo')?.dirty || complaintForm.get('photo')?.touched)">
+              </div>
+            </div>
+           
+            <div class="form-group" >
+                <label for="describe">Report Description:</label>
+                <textarea>
+                <input type="text" id="describe" formControlName="describe" placeholder="Describe your report!!!">
+              </textarea>
+              <div *ngIf="complaintForm.get('describe')?.invalid && (complaintForm.get('describe')?.dirty || complaintForm.get('describe')?.touched)">
+            </div>
+              </div>
+          <div class="btn btn-primary">  <button type="submit" class="btn btn-primary btn-block" >Submit</button></div>
+              </form>
+
+</div>
+</div>              
+</div>            
+</body>

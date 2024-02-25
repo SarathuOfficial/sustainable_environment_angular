@@ -1,0 +1,96 @@
+<!-- HTML -->
+<body class="background">
+  <div class="container login-container">
+    <div class="row">
+      <div class="col-md-8 col-lg-6 mx-auto">
+        <div class="container text-container">
+        <h2>LOGIN</h2>
+        </div>
+        <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Email address">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" placeholder="Password" [type]="hide ? 'password' : 'text'" [(ngModel)]="password">
+            <span class="toggle-password" (click)="togglePassword()">
+              <i class="fas" [ngClass]="{'fa-eye-slash': hide, 'fa-eye': !hide}"></i>
+            </span>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" >Login</button>
+        </form>
+        <div class="sign-up">Do you want to create an account? <a routerLink="signup">Signup</a></div>    
+      </div>
+    </div>
+  </div>
+</body>
+
+<!-- Styles for the body element -->
+<style>
+  .text-container{
+        text-align: center;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        color:#128aec;
+        font-size: 23px;
+        padding-top: 0px;
+        padding-bottom: 10px;
+  }
+  .background {
+    background-color: whitesmoke;
+    opacity: 1;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+  }
+
+
+  .login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    height:390px;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+  }
+
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+
+
+  .login-form input {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    width:300px;
+    height: 45px;
+    margin-left: 50px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  }
+
+  .login-form button {
+    padding: 10px;
+    background-color: #2196f3;
+    color: #fff;
+    border: none;
+    margin-left: 150px;
+    width: 100px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  .sign-up{
+    text-align: center;
+  }
+  .sign-up a{
+    color: rgb(83, 143, 212);
+    text-decoration:underline;
+    font-weight: bold;
+  }
+</style>
